@@ -9,14 +9,6 @@ public class Solution {
         for(char c : input.toCharArray()){
             letterCount.merge(c, 1, Integer::sum);
         }
-        return formatResult(letterCount);
-    }
-
-    private String formatResult(Map<Character, Integer> map){
-        StringBuilder builder = new StringBuilder();
-        for(Map.Entry<Character, Integer> entry : map.entrySet()){
-            builder.append(entry.getKey()).append(":").append(entry.getValue()).append(" ");
-        }
-        return builder.toString().trim();
+        return letterCount.toString().replaceAll("[,{}]+", "").replaceAll("=", ":");
     }
 }
